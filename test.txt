@@ -1,0 +1,14 @@
+HTTP-запрос на создание сотрудника:
+curl -X POST -H "Content-Type: application/json" -d '{"name": "John", "surname": "Doe", "phone": "1234567890", "company_id": 1, "passport": {"type": "passport", "number": "1234567890"}, "department": {"name": "Sales", "phone": "1234567890"}}' http://localhost:8080/employees
+
+Список сотрудников для указанной компании:
+curl -X GET http://localhost:8080/employees/company/1
+
+Удалить сотрудника по идентификатору:
+curl -X DELETE http://localhost:8080/employees/1
+
+Обновить информацию о сотруднике:
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "Jane", "surname": "Doe", "phone": "0987654321", "company_id": 2, "passport": {"type": "ID card", "number": "0987654321"}, "department": {"name": "Marketing", "phone": "0987654321"}}' http://localhost:8080/employees/1
+
+Обновить информацию о подразделении сотрудника:
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "Finance", "phone": "0123456789"}' http://localhost:8080/employees/1/department
